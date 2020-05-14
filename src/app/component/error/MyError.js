@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import MyButton from "../button/MyButton";
+import MyButton from "../button/GradientButton";
 
 export default (props) => {
     return (

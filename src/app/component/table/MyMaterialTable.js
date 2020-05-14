@@ -18,8 +18,9 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
 
-const tableIcons = {
+export const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+    Save: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
     Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
     Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
@@ -35,25 +36,28 @@ const tableIcons = {
     Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
     SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
     ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
 };
 
-const renderTableHeader = (headers) => {
+/*const renderTableHeader = (headers) => {
     let result = [];
-    headers.map((key, index) => {
+    headers.forEach(key => {
+        if (key.type)
         result.push({title: key, field: key})
     });
     return result;
-};
+};*/
 
 export default function MyMaterialTable(props) {
     return (
         <div className='material-table'>
             <MaterialTable
                 icons={tableIcons}
-                columns={renderTableHeader(props.headers)}
+                columns={props.headers}
                 data={props.data}
-                title="Demo Title"
+                title={props.title}
+                editable={props.editable}
+                actions={props.actions}
             />
         </div>
     );

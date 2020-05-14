@@ -1,4 +1,3 @@
-import App from './app/app';
 import React from "react";
 import ReactDOM from "react-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,6 +7,7 @@ import rootReducer from "./app/store/reducers/rootReducer";
 import reduxThunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import {BrowserRouter} from "react-router-dom";
+import App from "./app/App";
 
 
 const composeEnhancers =
